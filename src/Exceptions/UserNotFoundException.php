@@ -2,7 +2,9 @@
 
 namespace Tgu\Mityutyuk\Exceptions;
 
-class UserNotFoundException extends \Exception
+use Exception;
+
+class UserNotFoundException extends Exception
 {
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tgu\Mityutyuk\Blog\Repositories\PostRepositories;
+namespace Tgu\Mityutyuk\Blog\Repositories\PostRepository;
 
 use PDO;
 use PDOStatement;
@@ -8,7 +8,7 @@ use Tgu\Mityutyuk\Blog\Post;
 use Tgu\Mityutyuk\Blog\UUID;
 use Tgu\Mityutyuk\Exceptions\PostNotFoundException;
 
-class SqlitePostsRepository
+class SqlitePostsRepository implements PostsRepositoryInterface
 {
     private PDO $connection;
 
@@ -43,5 +43,12 @@ class SqlitePostsRepository
         );
         $statement->execute([':uuid_post'=>(string)$uuidPost]);
         return $this->getPost($statement, (string)$uuidPost);
+    }
+
+    public function getTextPost(string $text):Post
+    {
+        $statement = $this->connection->prepare("SELECT * FROM post WHERE text = :text");
+        $statement->execute([':text'=>(string)$text]);
+        return $this->getPost($statement, $text);
     }
 }

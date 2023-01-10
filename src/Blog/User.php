@@ -15,7 +15,7 @@ class User
     }
     public function __toString(): string
     {
-        $uuid=$this->getUuid();
+        $uuid=$this->getByUuid();
         $firstName = $this->name->getFirstName();
         $lastName = $this->name->getLastName();
         return "User $uuid with name $firstName $lastName and login $this->username".PHP_EOL;

@@ -4,7 +4,7 @@ namespace Tgu\Mityutyuk\Exceptions;
 
 use Exception;
 
-class CommentNotFoundException extends Exception
+class ArgumentsException extends Exception
 {
 
 }

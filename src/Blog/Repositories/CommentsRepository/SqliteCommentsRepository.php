@@ -44,4 +44,11 @@ class SqliteCommentsRepository implements CommentsRepositoryInterface
         $statement->execute([':uuid_comment'=>(string)$uuid_comment]);
         return $this->getComment($statement, (string)$uuid_comment);
     }
+
+    public function getTextComment(string $textCom):Comments
+    {
+        $statement = $this->connection->prepare("SELECT * FROM comments WHERE textCom = :textCom");
+        $statement->execute([':textCom'=>(string)$textCom]);
+        return $this->getComment($statement, $textCom);
+    }
 }

@@ -23,7 +23,7 @@ class SqliteUsersRepository implements UsersRepositoryInterface
         $statement = $this->connection->prepare(
             "INSERT INTO users (uuid, first_name, last_name, username) VALUES (:uuid,    :first_name,:last_name, :username)");
         $statement->execute([
-            ':uuid'=>(string)$user->getUuid(),
+            ':uuid'=>(string)$user->getByUuid(),
             ':first_name'=>$user->getName()->getFirstName(),
             ':last_name'=>$user->getName()->getLastName(),
             ':username'=>$user->getUserName()]);

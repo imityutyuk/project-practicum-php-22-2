@@ -1,6 +1,6 @@
 <?php
 
-namespace Tgu\Mityutyuk\Blog\Repositories\PostRepositories;
+namespace Tgu\Mityutyuk\Blog\Repositories\PostRepository;
 
 use Tgu\Mityutyuk\Blog\Post;
 use Tgu\Mityutyuk\Blog\UUID;
